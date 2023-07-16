@@ -164,5 +164,30 @@ Agora basta só utilizar a constante onde for necessário que a informação que
 ```
  <img  src="imagens sobre o site/param dois.JPG">
 
+## Caso a rota não existe ou não tenha o conteúdo requisitado 
+
+A última opção do menu apresenta uma situação em caso do caminho requerido não existir, caso isso ocorre é possível específicar uma página padrão que retorne o problema
+
+```javascript
+  <Route path="*" element={<NotFound/>}/> 
+```
+Inserindo o caracter "*" toda página que levar a um caminho que não existe, irá retornar uma página padrão de erro, como é visto no exemplo a seguir:
+
+* Lista de caminhos existentes:
+```javascript
+<Routes>
+    <Route path='/' exact element={<Home/>}/>
+    <Route path='/about' element={<About/>}/>
+    <Route path='/param/:id' element={<Param/>}/>
+    <Route path="*" element={<NotFound/>}/> 
+</Routes>
+```
+
+```javascript
+<Link to="/naoexiste" >Não existe caminho especifico</Link> //<--- Perceba que o caminho não existe na lista acima
+```
+Resultado:
+
+ <img  src="imagens sobre o site/erro.JPG">
 
 ### Fim
